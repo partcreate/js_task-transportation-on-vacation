@@ -13,17 +13,15 @@ function calculateRentalCost(days) {
     7: 50,
   };
 
-  let rab = 0;
+  let discount = 0;
 
-  if (days >= 3) {
-    if (days >= 7) {
-      rab = offers['7'];
-    } else {
-      rab = offers['3'];
-    }
+  if (days >= 7) {
+    discount = offers['7'];
+  } else if (days >= 3) {
+    discount = offers['3'];
   }
 
-  return days * price - rab;
+  return days * price - discount;
 }
 
 module.exports = calculateRentalCost;
